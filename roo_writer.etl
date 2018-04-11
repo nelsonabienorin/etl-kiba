@@ -1,0 +1,40 @@
+require 'csv'
+require 'rubygems'
+require 'write_xlsx'
+
+class MyCsvSource
+  attr_reader :input_file
+  def initialize(input_file)
+    @input_file = input_file
+    each
+  end
+
+  def each
+    puts 'fer'
+    #puts input_file
+    CSV.open(input_file, headers: true, header_converters: :symbol) do |csv|
+      puts 'Nel'
+      #csv.each do |row|
+        #puts 'Adex'
+        #yield(row.to_hash['Property Status'])
+     # end
+    end
+  end
+end
+
+def writeToSheet
+    puts 'here too?'
+    workbook = WriteXLSX.new('etl_output.xlsx')
+    worksheet = workbook.add_worksheet
+    format = workbook.add_format
+    format.set_bold
+    #format.set_color('blue')
+    format.set_align('left')
+end
+
+
+
+myFile = IO.read('./nwbor_csv/residential_search_layout_table.csv')
+csvsrc = MyCsvSource.new(myFile)
+mytext = IO.read('NWBOR_show_file_values.xlsx')
+

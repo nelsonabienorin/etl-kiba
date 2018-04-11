@@ -1,0 +1,9 @@
+require_relative './MyCsvSource'
+require_relative './MyCsvDestination'
+
+myFileName = './NWBOR_show_file_values.xlsx'
+
+source MyCsvSource, myFileName
+
+destination MyCsvDestination, 'mycsvoutput.csv'
+

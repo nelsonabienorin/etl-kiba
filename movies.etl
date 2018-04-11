@@ -1,0 +1,15 @@
+require_relative 'common'
+
+api_key = IO.read('.themoviedb')
+
+source CSVSource, filename: 'movies.csv'
+
+show_me!
+
+limit ENV['LIMIT']
+
+transform MovieDBLookup,
+    api_key: api_key,
+    title_field: 'title'
+
+show_me!
