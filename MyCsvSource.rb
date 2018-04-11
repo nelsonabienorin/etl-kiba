@@ -13,11 +13,11 @@ class MyCsvSource
     camelizedArray = word.scan(/[A-Z][a-z]+/)
 
     if camelizedArray.count == 2
-      result = "#{camelizedArray[0]}_#{camelizedArray[1]}"
+      "#{camelizedArray[0]}_#{camelizedArray[1]}"
     elsif camelizedArray.count == 3
-      result = "#{camelizedArray[0]}_#{camelizedArray[1]}_#{camelizedArray[2]}"
+      "#{camelizedArray[0]}_#{camelizedArray[1]}_#{camelizedArray[2]}"
     else
-      result = word
+      word
     end
 
   end
